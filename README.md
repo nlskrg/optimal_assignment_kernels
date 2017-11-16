@@ -1,10 +1,10 @@
 # Optimal Assignment Kernels
-Source code for the paper "[On Valid Optimal Assignment Kernels and Applications to Graph Classification](http://papers.nips.cc/paper/6166-on-valid-optimal-assignment-kernels-and-applications-to-graph-classification.pdf)", Nils M. Kriege, Pierre-Louis Giscard, Richard C. Wilson, NIPS 2016.
+Source code for the paper [On Valid Optimal Assignment Kernels and Applications to Graph Classification](http://papers.nips.cc/paper/6166-on-valid-optimal-assignment-kernels-and-applications-to-graph-classification.pdf), Nils M. Kriege, Pierre-Louis Giscard, Richard C. Wilson, NIPS 2016.
 
 ## Usage
-The implemented kernels can be computed via a command line interface. Run the shell script `kkernel --help` to see a list of all available kernels and parameters.
+The graph kernels contained in this package can be computed via a command line interface. Run the shell script `kkernel` to see a list of all available kernels and parameters.
 
-# Example
+### Example
 The following command computes the Weisfeiler-Lehman optimal assignment kernel with 0 to 4 refinement steps for the data set ENZYMES:
 ```
 ./kkernel -d ENZYMES wloa -h 0,1,2,3,4
@@ -28,7 +28,7 @@ When using our code please cite:
 	  year                     = {2016},
 	  editor                   = {D. D. Lee and M. Sugiyama and U. V. Luxburg and I. Guyon and R. Garnett},
 	  pages                    = {1623--1631}
-        }
+	}
 
 ## Contact information
 If you have any questions, please contact [Nils Kriege](https://ls11-www.cs.tu-dortmund.de/staff/kriege).
