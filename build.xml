@@ -1,0 +1,78 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="KGraph" default="jar">
+    <description>
+    	Builds graph kernel library CLI.
+    </description>
+	
+	<!-- build properties -->
+	<property name="src.dir" location="src"/>
+	<property name="lib.dir" location="lib"/>
+	
+	<property name="build.classes.dir" location="bin"/>
+	<property name="build.javadoc.dir" location="javadoc"/>
+	<property name="dist.jar.filename" value="kgraph.jar"/>
+	<property name="dist.jar" location="${dist.jar.filename}"/>
+		
+
+	<path id="build.classpath">
+		<fileset id="build.libs" dir="${lib.dir}">
+			<include name="**/*.jar"/>
+		</fileset>
+	</path>
+	
+	<!-- ================================= 
+          target: clean              
+         ================================= -->
+    <target name="clean" description="removes all files produced by the build process">
+		<delete dir="${build.classes.dir}"/>
+		<delete dir="${build.javadoc.dir}"/>
+		<delete file="${dist.jar}"/>
+    </target>
+
+	
+	<!-- ================================= 
+          target: compile              
+         ================================= -->
+    <target name="compile" description="compile code">
+    	<mkdir dir="${build.classes.dir}"/>
+    	<!-- compile everything in the source dir and place class files in build.classes.dir -->
+    	<javac srcdir="${src.dir}"
+    	 includeantruntime="no"
+         destdir="${build.classes.dir}"
+    	 encoding="UTF-8"
+    	 debug="on"
+         source="1.8"
+         target="1.8">
+    		<classpath refid="build.classpath"/>
+    	</javac>
+    </target>
+
+	<!-- ================================= 
+          target: jar      
+         ================================= -->
+    <target name="jar" depends="compile" description="create a small jar, not including any dependencies or plugins">
+    	<!-- build a jar containing software and a Manifest -->
+    	<jar destfile="${dist.jar}" duplicate="preserve">
+        	<fileset dir="${build.classes.dir}">
+        	</fileset>
+        </jar>
+	</target>
+	
+	
+	<!-- ================================= 
+          target: javadoc              
+         ================================= -->
+    <target name="javadoc" description="generates Javadoc pages">
+    	
+    	<mkdir dir="${build.javadoc.dir}"/>
+    	<javadoc 
+    		sourcepath="${src.dir}" 
+    		destdir="${build.javadoc.dir}" 
+    		classpathref="build.classpath" 
+    		encoding="UTF-8" 
+    		charset="UTF-8" 
+    		docencoding="UTF-8"
+    	/>
+    </target>
+
+</project>

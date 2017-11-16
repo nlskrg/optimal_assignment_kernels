@@ -1,0 +1,2 @@
+#!/bin/bash
+java -Xmx8192m -cp kgraph.jar/:lib/jcommander-1.58.jar cli.KKernel "$@"
