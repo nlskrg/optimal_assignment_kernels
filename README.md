@@ -15,7 +15,7 @@ For each value of `h` the kernel matrix is computed and stored in the directory 
 Run `ant` to build `kgraph.jar` from source. 
 
 ## Data sets
-The repository contains the data set ENZYMES only. Further data sets are available from the website [Benchmark Data Sets for Graph Kernels](http://graphkernels.cs.tu-dortmund.de).
+The repository contains the data set ENZYMES only. Further data sets are available from the website [Benchmark Data Sets for Graph Kernels](http://graphkernels.cs.tu-dortmund.de). Please note that in our experimental comparison the edge labels, if present, were ignored. In order to reproduce the published results, please delete the files `DS_edge_labels.txt`, where `DS` is the name of the data set.
 
 ## Terms and conditions
 When using our code please cite:
